@@ -69,3 +69,59 @@ map("n", "<S-Tab>", ":BufferLineCyclePrev<CR>", opts)
 -- Move buffers left/right (Alt+h/l)
 map("n", "<A-l>", ":BufferLineMoveNext<CR>", opts)
 map("n", "<A-h>", ":BufferLineMovePrev<CR>", opts)
+
+-- Dont let W an e, etc jump lines
+-- Keep `w`, `W` from wrapping to next line
+vim.keymap.set("n", "w", function()
+	local col = vim.fn.col(".")
+	if col == vim.fn.col("$") - 1 then
+		return ""
+	else
+		return "w"
+	end
+end, { expr = true })
+
+vim.keymap.set("n", "W", function()
+	local col = vim.fn.col(".")
+	if col == vim.fn.col("$") - 1 then
+		return ""
+	else
+		return "W"
+	end
+end, { expr = true })
+
+-- Keep `e`, `E` from wrapping to next line
+vim.keymap.set("n", "e", function()
+	local col = vim.fn.col(".")
+	if col == vim.fn.col("$") - 1 then
+		return ""
+	else
+		return "e"
+	end
+end, { expr = true })
+
+vim.keymap.set("n", "E", function()
+	local col = vim.fn.col(".")
+	if col == vim.fn.col("$") - 1 then
+		return ""
+	else
+		return "E"
+	end
+end, { expr = true })
+
+-- Keep `b`, `B` from wrapping to previous line
+vim.keymap.set("n", "b", function()
+	if vim.fn.col(".") == 1 then
+		return ""
+	else
+		return "b"
+	end
+end, { expr = true })
+
+vim.keymap.set("n", "B", function()
+	if vim.fn.col(".") == 1 then
+		return ""
+	else
+		return "B"
+	end
+end, { expr = true })

@@ -1,6 +1,29 @@
 return {
 	-- { "EdenEast/nightfox.nvim" }, -- lazy
-	{ "sainnhe/everforest" },
+	{
+		"AlessandroYorba/Alduin",
+		config = function()
+			vim.g.alduin_Shout_Become_Ethereal = 1
+		end,
+	},
+
+	{
+		"zootedb0t/citruszest.nvim",
+		lazy = false,
+		priority = 1000,
+	},
+	{
+		"wtfox/jellybeans.nvim",
+		lazy = false,
+		priority = 1000,
+		opts = {}, -- Optional
+	},
+	{
+		"xero/miasma.nvim",
+		lazy = false,
+		priority = 1000,
+		config = function() end,
+	},
 	-- { "Shatur/neovim-ayu" },
 	-- "maxmx03/solarized.nvim", -- Solarized plugin
 	-- lazy = false, -- Load immediately

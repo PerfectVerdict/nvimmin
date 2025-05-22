@@ -14,8 +14,14 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
 	require("gitstuff"),
 	require("colorscheme"),
-	-- Lua
-	--
+	-- Rainbow Highlighting
+	{
+		"HiPhish/nvim-ts-rainbow2",
+	},
+	-- {
+	-- 	-- Add indentation guides even on blank lines
+	-- 	"lukas-reineke/indent-blankline.nvim",
+	-- },
 	{ "akinsho/bufferline.nvim", version = "*", dependencies = "nvim-tree/nvim-web-devicons" },
 	{
 		"famiu/bufdelete.nvim",
@@ -48,13 +54,13 @@ require("lazy").setup({
 	{
 		"nvim-lualine/lualine.nvim",
 		dependencies = { "nvim-tree/nvim-web-devicons" },
-		-- config = function()
-		-- 	require("lualine").setup({
-		-- 		options = {
-		-- 			theme = "ayu",
-		-- 		},
-		-- 	})
-		-- end,
+		config = function()
+			require("lualine").setup({
+				options = {
+					theme = "citruszest",
+				},
+			})
+		end,
 	},
 	{ "sheerun/vim-polyglot" },
 	{
